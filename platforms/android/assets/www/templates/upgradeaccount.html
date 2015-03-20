@@ -1,0 +1,22 @@
+<ion-view view-title="UPGRADE ACCOUNT">
+  <ion-content>
+       <div ng-if="showLoader" style="text-align:center;">
+           <i class="icon ion-loading-c"></i>
+       </div>
+       <div ng-if="!showLoader">
+          <div class="item item-text-wrap" ng-if="message!=''">
+              <strong>{{message}}</strong>
+          </div>
+         <div class="list card">
+            <div class="item item-divider">
+               Upgrade Account
+            </div>
+            <div class="item item-body">
+                  <p>Upgrade account instruction here. Detail instruction with link used by users to pay and upgrade account.</p>
+            </div>
+          </div>
+        
+       </div>
+      
+  </ion-content>
+</ion-view>

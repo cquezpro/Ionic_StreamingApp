@@ -1,0 +1,45 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="browse">
+  <div ng-controller="browseController">
+     <md-toolbar md-theme="grey">
+           <div class="mtool">
+    <div layout="row">
+      <div flex="66" style="padding-top:2px;">
+          Browse
+      </div>
+      <div flex="33">
+         <div class="item_r">
+               <md-button ng-click="close()" aria-label="Cancel search">
+                <md-tooltip>
+                  Cancel browse
+                </md-tooltip>
+                <i class="fa fa-close"></i>
+              </md-button>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+      </md-toolbar>
+      <div class="frmtxt">
+          
+          <md-content md-theme="light-blue-dark">
+            <div class="browsenav">
+               <ul>
+                  <li><a href="#/animeseries" title="watch anime episodes">Anime Episodes</a></li>
+                  <li><a href="#/animefansubs" title="watch anime fansubs">Anime Fansubs</a></li>
+                  <li><a href="#/animemovies" title="watch anime movies">Anime Movies</a></li>
+                  <li><a href="#/animeova" title="watch anime ova's">Anime OVA's</a></li>
+                  <li><a href="#/animetrailers" title="watch anime episodes">Anime Trailers</a></li>
+                 
+                  <li><a href="#/toprated" title="watch anime episodes">Top Rated</a></li>
+               </ul>
+            </div>
+                     
+      </md-content>
+      
+      
+      </div>
+     
+  </div>
+      
+</md-sidenav>

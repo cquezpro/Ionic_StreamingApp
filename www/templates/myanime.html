@@ -1,0 +1,37 @@
+<ion-view view-title="MY ANIME">
+  <ion-content>
+      <div class="item item-text-wrap" ng-if="message!=''">
+          <strong>{{message}}</strong>
+      </div>
+      
+      <div class="list card">
+          
+          <a nav-clear menu-close href="#/app/watchedlist" class="item item-icon-left">
+            <i class="icon ion-easel"></i>
+             Recently Watched List
+          </a>
+        
+          <a nav-clear menu-close href="#/app/myanimecurrently" class="item item-icon-left">
+            <i class="icon ion-image"></i>
+            My Anime Currently
+          </a>
+          
+          <a nav-clear menu-close href="#/app/myanimelibrary" class="item item-icon-left">
+            <i class="icon ion-outlet"></i>
+            My Anime Library
+          </a>
+          
+           <a nav-clear menu-close href="#/app/myanimewant" class="item item-icon-left">
+            <i class="icon ion-xbox"></i>
+            Anime I Want To Watch
+          </a>
+          
+           <a nav-clear menu-close href="#/app/mysubscription" class="item item-icon-left">
+            <i class="icon ion-person-stalker"></i>
+            My Subscription
+          </a>
+        </div>
+
+      
+  </ion-content>
+</ion-view>

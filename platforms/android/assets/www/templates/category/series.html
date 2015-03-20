@@ -1,0 +1,25 @@
+<ion-view view-title="{{pageName}}">
+  <ion-content>
+    <ion-list class="wrapping-list">
+       <ion-item nav-clear menu-close class="item item-thumbnail-left" href="#/app/series/{{item.id}}" ng-repeat="item in Data">
+          <img ng-src="{{item.image}}" alt="{{item.title}}">
+          <h2>{{item.title}}</h2>
+          <p>{{item.views}} views</p>
+          <ul class="star-rating-sm">
+                <li class="current-rating" style="width:{{(item.rating/2)*20}}%"></li>
+                <li><a class="active" href="#" class="one-star">1</a></li>
+                <li><a class="active" href="#" class="two-stars">2</a></li>
+                <li><a class="active" href="#" class="three-stars">3</a></li>
+                <li><a class="active" href="#" class="four-stars">4</a></li>
+                <li><a class="active" href="#" class="five-stars">5</a></li>
+          </ul>
+       </ion-item>
+    <ion-list>
+    <ion-infinite-scroll
+      ng-if="isDataExist"
+      icon="ion-loading-c"
+      on-infinite="loadMore()"
+      distance="50%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

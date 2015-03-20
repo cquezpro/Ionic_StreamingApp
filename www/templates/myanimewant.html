@@ -1,0 +1,77 @@
+<ion-view view-title="Anime I Want To Watch">
+  <ion-content>
+      <div class="list card">
+          <button class="button button-icon icon ion-ios-minus-outline button-icon-left" 
+          ng-click="showDelete = !showDelete; showReorder = false" title="Remove Records"></button>
+          <a nav-clear menu-close href="#/app/addmyanimewant" title="Add Anime To My Want List" class="button button-icon button-icon-right">
+            <i class="icon ion-plus-round"></i>
+           
+          </a>
+       </div>
+       
+     <div class="item item-text-wrap" ng-if="message!=''">
+          <strong>{{message}}</strong>
+      </div>
+      <ion-list class="wrapping-list" show-delete="showDelete">
+       
+       <ion-item nav-clear ng-if="item.acmobile!=1" menu-close class="item item-thumbnail-left" href ng-repeat="item in Data">
+          <img ng-src="{{item.image}}" alt="{{item.title}}">
+          <h2>{{item.title}}</h2>
+          <span class="badge badge-dark badge-01">Mobile Not Ready</span>
+           <span class="badge badge-assertive badge-right" ng-if="item.type==1">series</span>
+           <span class="badge badge-royal badge-right" ng-if="item.type==2">ova</span>
+            <span class="badge badge-energized badge-right" ng-if="item.type==6">trailer</span>
+             <span class="badge badge-balanced badge-right" ng-if="item.type==3">movie</span>
+              <span class="badge badge-calm badge-right" ng-if="item.type==4">live</span>
+              <span class="badge badge-positive badge-right" ng-if="item.type==5">fansub</span>
+          <p>{{item.views}} views</p>
+          <p ng-if="item.type==5 || item.type==2 || item.type==1 || item.type==4">
+            {{item.e_online}} out of {{item.e_total}}
+          </p>
+          <ul class="star-rating-sm">
+                <li class="current-rating" style="width:{{(item.rating/2)*20}}%"></li>
+                <li><a class="active" href="#" class="one-star">1</a></li>
+                <li><a class="active" href="#" class="two-stars">2</a></li>
+                <li><a class="active" href="#" class="three-stars">3</a></li>
+                <li><a class="active" href="#" class="four-stars">4</a></li>
+                <li><a class="active" href="#" class="five-stars">5</a></li>
+          </ul>
+           <ion-delete-button class="ion-minus-circled"
+                       ng-click="deleteItem(item.delete_id, Data, $index)">
+           </ion-delete-button>
+       </ion-item>
+       <ion-item ng-if="item.acmobile==1" nav-clear menu-close class="item item-thumbnail-left" href="#/app/series/{{item.id}}" ng-repeat="item in Data">
+          <img ng-src="{{item.image}}" alt="{{item.title}}">
+          <h2>{{item.title}}</h2>
+          <span class="badge badge-assertive" ng-if="item.type==1">series</span>
+           <span class="badge badge-royal" ng-if="item.type==2">ova</span>
+            <span class="badge badge-energized" ng-if="item.type==6">trailer</span>
+             <span class="badge badge-balanced" ng-if="item.type==3">movie</span>
+              <span class="badge badge-calm" ng-if="item.type==4">live</span>
+              <span class="badge badge-positive" ng-if="item.type==5">fansub</span>
+          <p>{{item.views}} views</p>
+          <p ng-if="item.type==5 || item.type==2 || item.type==1 || item.type==4">
+            {{item.e_online}} out of {{item.e_total}}
+          </p>
+          <ul class="star-rating-sm">
+                <li class="current-rating" style="width:{{(item.rating/2)*20}}%"></li>
+                <li><a class="active" href="#" class="one-star">1</a></li>
+                <li><a class="active" href="#" class="two-stars">2</a></li>
+                <li><a class="active" href="#" class="three-stars">3</a></li>
+                <li><a class="active" href="#" class="four-stars">4</a></li>
+                <li><a class="active" href="#" class="five-stars">5</a></li>
+          </ul>
+           <ion-delete-button class="ion-minus-circled"
+                       ng-click="deleteItem(item.delete_id, Data, $index)">
+           </ion-delete-button>
+       </ion-item>
+    <ion-list>
+    <ion-infinite-scroll
+      ng-if="isDataExist"
+      on-infinite="loadMore()"
+      distance="1%">
+    </ion-infinite-scroll>
+
+      
+  </ion-content>
+</ion-view>

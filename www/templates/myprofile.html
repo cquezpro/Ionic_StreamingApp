@@ -1,0 +1,22 @@
+<ion-view view-title="MY PROFILE">
+  <ion-content>
+       <div ng-if="showLoader" style="text-align:center;">
+           <i class="icon ion-loading-c"></i>
+       </div>
+       <div ng-if="!showLoader">
+          <div class="item item-text-wrap" ng-if="message!=''">
+              <strong>{{message}}</strong>
+          </div>
+         <div class="list card">
+            <div class="item item-divider">
+               My Profile
+            </div>
+            <div class="item item-body">
+                  <p>Provide instruction to display my profile info here.</p>
+            </div>
+          </div>
+        
+       </div>
+      
+  </ion-content>
+</ion-view>

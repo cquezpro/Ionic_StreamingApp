@@ -1,0 +1,42 @@
+<ion-view view-title="SEARCH RESULT">
+  <ion-content>
+    <div ng-if="message != ''">
+        <div class="card">
+          <div class="item item-text-wrap">
+            {{message}}
+          </div>
+        </div>
+    </div>
+    <ion-list class="wrapping-list">
+       <ion-item nav-clear menu-close class="item item-thumbnail-left" href="#/app/series/{{item.id}}" ng-repeat="item in Data.records">
+          <img ng-src="{{item.image}}" alt="{{item.title}}">
+          <h2>{{item.title}}</h2>
+           <span class="badge badge-assertive" ng-if="item.type==1">series</span>
+           <span class="badge badge-royal" ng-if="item.type==2">ova</span>
+            <span class="badge badge-energized" ng-if="item.type==6">trailer</span>
+             <span class="badge badge-balanced" ng-if="item.type==3">movie</span>
+              <span class="badge badge-calm" ng-if="item.type==4">live</span>
+              <span class="badge badge-positive" ng-if="item.type==5">fansub</span>
+              
+        
+          <p>{{item.views}} views</p>
+          <p ng-if="item.type==5 || item.type==2 || item.type==1 || item.type==4">
+            {{item.e_online}} out of {{item.e_total}}
+          </p>
+          <ul class="star-rating-sm">
+                <li class="current-rating" style="width:{{(item.rating/2)*20}}%"></li>
+                <li><a class="active" href="#" class="one-star">1</a></li>
+                <li><a class="active" href="#" class="two-stars">2</a></li>
+                <li><a class="active" href="#" class="three-stars">3</a></li>
+                <li><a class="active" href="#" class="four-stars">4</a></li>
+                <li><a class="active" href="#" class="five-stars">5</a></li>
+          </ul>
+       </ion-item>
+    <ion-list>
+    <ion-infinite-scroll
+      ng-if="isDataExist"
+      on-infinite="loadMore()"
+      distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

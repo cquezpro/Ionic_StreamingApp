@@ -1,0 +1,23 @@
+<ion-view view-title="FORGOT PASSWORD">
+  <ion-content>
+       <div ng-if="showLoader" style="text-align:center;">
+           <i class="icon ion-loading-c"></i>
+       </div>
+       <div ng-if="!showLoader">
+          <div class="item item-text-wrap" ng-if="message!=''">
+              <strong>{{message}}</strong>
+          </div>
+         <div class="list card">
+            <div class="item item-divider">
+               Forgot Password
+            </div>
+            <div class="item item-body">
+                  <p>Click on link below to complete your account recovery process.</p>    
+                  <a class="button button-small button-assertive" href="http://www.animecrave.com/exec/user/account_recovery/recover.php">Forgot Password</a>
+            </div>
+          </div>
+        
+       </div>
+      
+  </ion-content>
+</ion-view>

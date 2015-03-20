@@ -1,0 +1,34 @@
+<ion-view view-title="MY ACCOUNT">
+  <ion-content>
+     
+      <div class="item item-text-wrap" ng-if="message!=''">
+          <strong>{{message}}</strong>
+      </div>
+     <div class="list card">
+        <div class="item item-divider">
+           My Account
+        </div>
+        <div class="item item-body">
+                 <p>Welcome {{info.username}}</p>
+                 <p>Account Type: <span ng-if="paidstatus">Live</span><span ng-if="!paidstatus">Normal</span></p>
+                 <p>My Points: {{data.points}}</p>
+          </div>
+      </div>
+      
+      <div class="list card">
+
+          <a nav-clear menu-close ng-if="!paidstatus" href="#/app/upgradeaccount" class="item item-icon-left">
+            <i class="icon ion-card"></i>
+             Upgrade Account
+          </a>
+        
+          <a nav-clear menu-close href="#/app/myanime" class="item item-icon-left">
+            <i class="icon ion-heart"></i>
+            My Anime
+          </a>
+          
+        </div>
+
+      
+  </ion-content>
+</ion-view>

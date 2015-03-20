@@ -1,0 +1,124 @@
+<ion-view view-title="SERIES">
+  <ion-content>
+       <div class="list card">
+
+          <div class="item item-divider">
+            {{Data[0].title}}
+          </div>
+
+          <div class="item item-body" ng-repeat="item in Data">
+                <img ng-src="{{item.image}}" alt="{{item.title}}" class="full-image">
+                <p>
+                   {{item.desc_p1}}
+                </p>
+                <p>
+                  <a href="#" class="subdued"> {{item.views}} views</a>
+                  <a href="#" class="subdued"> {{item.rating/2}} out of 5 rating</a>
+                </p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+              <div class="tab-item">
+                Rate This!
+             </div>
+              <div class="tab-item" style="padding-top:10px;">
+                 <ul class="star-rating-sm">
+                   <li class="current-rating" style="width:100%"></li>
+                   <li><a href ng-click="pRate(1)" class="one-star">1</a></li>
+                   <li><a href ng-click="pRate(2)" class="two-stars">2</a></li>
+                   <li><a href ng-click="pRate(3)" class="three-stars">3</a></li>
+                   <li><a href ng-click="pRate(4)" class="four-stars">4</a></li>
+                   <li><a href ng-click="pRate(5)" class="five-stars">5</a></li>
+               </ul>
+             </div>
+             <div class="tab-item" ng-if="!isSubscribed">
+                 <a ng-if="Data[0].type==1 || Data[0].type == 5 || Data[0].type == 2 || Data[0].type == 4" class="tab-item" href ng-click="subscribe()">
+                  <i class="icon ion-share"></i>
+                  Subscribe
+                </a>
+             </div>
+             <div class="tab-item" ng-if="isSubscribed">
+                 <a ng-if="Data[0].type==1 || Data[0].type == 5 || Data[0].type == 2 || Data[0].type == 4" class="tab-item" href ng-click="unsubscribe()">
+                  <i class="icon ion-share"></i>
+                  Unubscribe
+                </a>
+             </div>
+          </div>
+
+       </div>
+              
+       <div class="list card" ng-if="showTrailerOption">
+         
+          <a href="#" class="item item-icon-left" ng-click="process(Series[0].id, Series[0].series_name)">
+            <i class="icon ion-arrow-right-c"></i>
+            WATCH TRAILER
+          </a>
+        
+       </div>
+       
+       <div class="list card" ng-if="showMain">
+          <div class="item item-divider bar-calm">
+            Episode List
+          </div>
+          <a nav-clear menu-close ng-repeat="item in Series" ng-click="process(item.id, item.series_name)" href class="item item-icon-left">
+            <i class="icon ion-arrow-right-c"></i>
+            {{item.series_name}}
+          </a>
+        
+       </div>
+       
+       <div class="list card" ng-if="showLanguage">
+          <div class="item item-divider">
+            Choose Language
+          </div>
+          <a nav-clear menu-close ng-click="procLang(0)" href class="item item-icon-left">
+            <i class="icon ion-arrow-right-c"></i>
+            WATCH IN ENGLISH [Dubbed]
+          </a>
+          <a nav-clear menu-close ng-click="procLang(1)" href class="item item-icon-left">
+            <i class="icon ion-arrow-right-c"></i>
+            WATCH IN JAPANESE [Subbed]
+          </a>
+          <a nav-clear menu-close ng-click="procBack()" href class="item item-icon-left">
+            <i class="icon ion-arrow-right-c"></i>
+            Back to List
+          </a>
+       </div>
+       
+       <div class="list card" ng-if="showQuality">
+          <div class="item item-divider">
+            Choose Quality
+          </div>
+          <div ng-if="videoProcessing" style="text-align:center;" class="item item-text-wrap">
+                <i class="icon ion-loading-c"></i>
+          </div>
+          <div ng-if="!videoProcessing">
+              <div class="item item-text-wrap" ng-if="message!=''">
+                 {{message}}
+              </div>
+              <a nav-clear menu-close ng-click="procQuality(0)" href class="item item-icon-left">
+                <i class="icon ion-arrow-right-c"></i>
+                WATCH IN STANDARD DEFINITION
+              </a>
+              <a nav-clear menu-close ng-click="procQuality(1)" href class="item item-icon-left">
+                <i class="icon ion-arrow-right-c"></i>
+                WATCH IN GOOD DEFINITION
+              </a>
+               <a ng-if="isPaid && Data[0].hd==1" nav-clear menu-close ng-click="procQuality(2)" href class="item item-icon-left">
+                <i class="icon ion-arrow-right-c"></i>
+                WATCH IN HIGH DEFINITION
+              </a>
+              <a ng-if="!isPaid && Data[0].hd==1" nav-clear menu-close href="#/app/upgradeaccount" class="item item-icon-left">
+                <i class="icon ion-arrow-right-c"></i>
+                WATCH IN HIGH DEFINITION (Upgrade to Live)
+              </a>
+              <a nav-clear menu-close ng-click="procBack()" href class="item item-icon-left">
+                <i class="icon ion-arrow-right-c"></i>
+                Back to List
+              </a>
+          </div>
+         
+       </div>
+      
+  </ion-content>
+</ion-view>

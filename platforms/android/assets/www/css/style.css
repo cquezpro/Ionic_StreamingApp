@@ -1,0 +1,86 @@
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+.app_container{min-height:650px;}
+.item_c {text-align:left;}
+.item_r {text-align:right;}
+.item { text-align:left;}
+a { color:#333; }
+.item_pad_top {text-align:left; padding-top:5px;}
+.item_pad {text-align:left; padding:5px 0px;}
+.res_img {width:100%; height:auto}
+.face {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 80px;
+  margin: 16px;
+}
+a.bold { font:108%; font-weight:bold;}
+.views {font:93%; color:#CCC;}
+.box_cnt { padding:20px;}
+.star-rating-sm a:hover,
+.star-rating-sm a:active,
+.star-rating-sm .current-rating{
+background: url(images/stars.png) left -1000px repeat-x;
+cursor: pointer;
+}
+.star-rating-sm {
+position:relative;
+width:125px;
+height:25px;
+overflow:hidden;
+list-style:none;
+margin:0;
+padding:0;
+background-position: left top;
+}
+.star-rating-sm  li{
+display: inline;
+}
+.star-rating-sm  a,
+.star-rating-sm  .current-rating{
+position:absolute;
+top:0;
+left:0;
+text-indent:-1000em;
+height:25px;
+line-height:25px;
+outline:none;
+overflow:hidden;
+border: none;
+}
+.star-rating-sm  a:hover,
+.star-rating-sm  a:active{
+background-position: left bottom;
+}
+.star-rating-sm  a.one-star{
+width:20%;
+z-index:6;
+}
+.star-rating-sm  a.two-stars{
+width:40%;
+z-index:5;
+}
+.star-rating-sm  a.three-stars{
+width:60%;
+z-index:4;
+}
+.star-rating-sm  a.four-stars{
+width:80%;
+z-index:3;
+}
+.star-rating-sm a.five-stars{
+width:100%;
+z-index:2;
+}
+.star-rating-sm  .current-rating{
+z-index:1;
+background-position: left center;
+} 
+.wrapping-list .item-content, .wrapping-list .item {
+    overflow: initial;
+    white-space: initial;
+}
+.badge-01 {
+ margin-right:70px;
+}

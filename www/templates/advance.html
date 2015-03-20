@@ -1,0 +1,172 @@
+<ion-view view-title="Advance Search">
+  <ion-content>
+       <div ng-if="showLoader" style="text-align:center;">
+           <i class="icon ion-loading-c"></i>
+       </div>
+       <div ng-if="!showLoader">
+          <div class="item item-text-wrap" ng-if="message!=''">
+              <strong>{{message}}</strong>
+          </div>
+          <div class="item item-body">
+              <div class="list">
+                  <div class="item item-divider">
+                     Advance Search
+                  </div>
+                  <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search" ng-model="searchOptions.query">
+                  </label>
+                  
+              </div>
+               <div class="item item-text-wrap">
+                 <strong>Language</strong>: Do you have a preffered language?
+               </div>
+               <ul class="list">
+                  <li ng-repeat="itm in lanuages"  class="item item-checkbox">
+                     <label class="checkbox">
+                       <input type="checkbox" ng-change="syncLanguage(bool, itm)" ng-model="bool" ng-checked="isLanguageChecked(itm.option)">
+                     </label>
+                     {{itm.option}}
+                  </li>
+               </ul>
+               
+               <div class="item item-text-wrap">
+                 <strong>Status</strong>: What condition for the series?
+               </div>
+               <div class="list">
+                  <label class="item item-radio">
+                    <input type="radio" value="Completed Only" ng-model="searchOptions.status">
+                    <div class="item-content">
+                      Completed Only
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="Ongoing Only" ng-model="searchOptions.status">
+                    <div class="item-content">
+                      Ongoing Only
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="Show All" ng-model="searchOptions.status">
+                    <div class="item-content">
+                      Show All
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+               </div>
+               
+               <div class="item item-text-wrap">
+                 <strong>Quality</strong>: Preffered Quality?
+               </div>
+               <ul class="list">
+                  <li ng-repeat="itm in quality"  class="item item-checkbox">
+                     <label class="checkbox">
+                       <input type="checkbox" ng-change="syncQuality(bool, itm)" ng-model="bool" ng-checked="isQualityChecked(itm.option)">
+                     </label>
+                     {{itm.option}}
+                  </li>
+               </ul>
+               <div class="item item-text-wrap">
+                 <strong>Genre</strong>: What genre are you looking for?
+               </div>
+               <ul class="list">
+                  <li ng-repeat="itm in Genre"  class="item item-checkbox">
+                     <label class="checkbox">
+                       <input type="checkbox" ng-change="syncGenre(bool, itm)" ng-model="bool" ng-checked="isGenreChecked(itm.option)">
+                     </label>
+                     {{itm.option}}
+                  </li>
+               </ul>
+               <div class="item item-text-wrap">
+                 <strong>Filter Out</strong>: What are you avoiding?
+               </div>
+               <ul class="list">
+                  <li ng-repeat="itm in contents"  class="item item-checkbox">
+                     <label class="checkbox">
+                       <input type="checkbox" ng-change="syncVoid(bool, itm)" ng-model="bool" ng-checked="isVoidChecked(itm.value)">
+                     </label>
+                     {{itm.value}}
+                  </li>
+               </ul>
+               <div class="item item-text-wrap">
+                 <strong>Anime Type</strong>: What Type of anime are you looking for?
+               </div>
+               <div class="list">
+                  <label class="item item-radio">
+                    <input type="radio" value="0" ng-model="searchOptions.type">
+                    <div class="item-content">
+                      All
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="1" ng-model="searchOptions.type">
+                    <div class="item-content">
+                      Series
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="5" ng-model="searchOptions.type">
+                    <div class="item-content">
+                      Fansubs
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="2" ng-model="searchOptions.type">
+                    <div class="item-content">
+                      OVA's
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="6" ng-model="searchOptions.type">
+                    <div class="item-content">
+                      Trailers
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                   <label class="item item-radio">
+                    <input type="radio" value="4" ng-model="searchOptions.type">
+                    <div class="item-content">
+                      Live Actions
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+               </div>
+               <div class="item item-text-wrap">
+                 <strong>Sorting Options</strong>: How would you like the anime sorted?
+               </div>
+               <div class="list">
+                  <label class="item item-radio">
+                    <input type="radio" value="title" ng-model="searchOptions.sort">
+                    <div class="item-content">
+                      Alphabetically
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="views" ng-model="searchOptions.sort">
+                    <div class="item-content">
+                      Popularity
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+                  <label class="item item-radio">
+                    <input type="radio" value="rating" ng-model="searchOptions.sort">
+                    <div class="item-content">
+                      Rating
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                  </label>
+               </div>  
+               <button ng-click="advSearch()" class="button button-block button-positive">
+                  Search
+               </button>
+          </div>
+       </div>
+  </ion-content>
+</ion-view>

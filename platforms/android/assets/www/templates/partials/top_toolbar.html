@@ -1,0 +1,32 @@
+<md-toolbar ng-controller="toolbarCtrl">
+  <div class="mtool">
+    <div layout="row">
+      <div flex="66">
+          <md-button ng-click="browseAction($event)" aria-label="Browse">
+            <md-tooltip>
+              Browse
+            </md-tooltip>
+            <i class="fa fa-bars"></i>
+          </md-button>
+          <md-button ng-click="showAction($event)" aria-label="Myaccount">
+            <md-tooltip>
+              My Account
+            </md-tooltip>
+            <i class="fa fa-user"></i>
+          </md-button>
+      </div>
+      <div flex="33">
+         <div class="item_r">
+               <md-button ng-click="searchAnime()" aria-label="Search Anime">
+                <md-tooltip>
+                  Search Anime
+                </md-tooltip>
+                <i class="fa fa-search"></i>
+              </md-button>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+</md-toolbar>
+

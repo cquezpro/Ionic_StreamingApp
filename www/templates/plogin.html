@@ -1,0 +1,38 @@
+<ion-view view-title="LOGIN">
+  <ion-content>
+       <div ng-if="showLoader" style="text-align:center;">
+           <i class="icon ion-loading-c"></i>
+       </div>
+       <div ng-if="!showLoader">
+          <div class="item item-text-wrap" ng-if="message!=''">
+              <strong>{{message}}</strong>
+          </div>
+
+          <div class="item item-body">
+              <div class="list">
+                  <div class="item item-divider">
+                     Login
+                  </div>
+                  <label class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input type="text" ng-model="user.username">
+                  </label>
+                  <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="user.password">
+                  </label>
+                  <label class="item">
+                    <button ng-click="processLogin(user)" class="button button-block button-positive" type="submit">Log in</button>
+                  </label>
+                  <div class="item">
+                    <a href="#/app/forgotpass" class="button button-full button-royal">Forgot Password</a>
+                  </div>
+              </div>
+             
+          </div>
+       
+        
+       </div>
+      
+  </ion-content>
+</ion-view>

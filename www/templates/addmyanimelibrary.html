@@ -1,0 +1,59 @@
+<ion-view view-title="ADD TO ANIME LIBRARY">
+  <ion-content>
+      <div class="item item-text-wrap" ng-if="message!=''">
+          <strong>{{message}}</strong>
+      </div>
+     <div class="list card">
+        <div class="item item-divider">
+           ADD ANIME TO MY "ANIME LIBRARY"
+        </div>
+         <div class="item item-body">
+            <div class="item item-input">
+                <p>Anime Series</p>
+            </div>
+           <div class="item item-input">
+                <select ng-model="selectedSeriesItems" style="height:100px; width:100%" multiple ng-options="item.id as item.title for item in Series" ng-required>
+                  <option value="">-- Select Anime Series --</option>
+                </select>
+          </div>
+           <div class="item item-input">
+                <p>Fan Sub</p>
+            </div>
+          <div class="item item-input">
+                <select ng-model="selectedFansubItems" style="height:100px; width:100%" multiple ng-options="item.id as item.title for item in FanSub" ng-required>
+                  <option value="">-- Select Fan Sub --</option>
+                </select>
+           </div>
+              <div class="item item-input">
+                <p>Movies</p>
+            </div>
+           <div class="item item-input">
+                <select ng-model="selectedMovieItems" style="height:100px; width:100%" multiple ng-options="item.id as item.title for item in Movie" ng-required>
+                  <option value="">-- Select Movies --</option>
+                </select>
+            </div>
+            <div class="item item-input">
+                <p>Ova</p>
+            </div>
+            <div class="item item-input">
+               
+                <select ng-model="selectedOvaItems" style="height:100px; width:100%" multiple ng-options="item.id as item.title for item in Ova" ng-required>
+                  <option value="">-- Select Ova --</option>
+                </select>
+            </div>
+            <div class="item item-input">
+                <p>Live Action</p>
+            </div>
+             <div class="item item-input">
+                <select ng-model="selectedLiveItems" style="height:100px; width:100%" multiple ng-options="item.id as item.title for item in Live" ng-required>
+                  <option value="">-- Select Live Actions --</option>
+                </select>
+            </div>
+            <div class="item">
+              <button ng-click="addCurrently(selectedSeriesItems,selectedFansubItems,selectedMovieItems,selectedOvaItems,selectedLiveItems)" class="button button-block button-positive" type="submit">Add Anime To My Library</button>
+            </div>
+               
+         </div>
+      </div>
+  </ion-content>
+</ion-view>

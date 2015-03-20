@@ -1,0 +1,71 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="filter">
+  <div ng-controller="filterController">
+     <md-toolbar md-theme="green">
+           <div class="mtool">
+    <div layout="row">
+      <div flex="66" style="padding-top:2px;">
+          Filter Options
+      </div>
+      <div flex="33">
+         <div class="item_r">
+               <md-button ng-click="close()" aria-label="Cancel search">
+                <md-tooltip>
+                  Cancel filter options
+                </md-tooltip>
+                <i class="fa fa-close"></i>
+              </md-button>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+      </md-toolbar>
+      <div class="frmtxt">
+          <md-toolbar md-theme="orange">
+    <div class="md-toolbar-tools">
+      <span class="md-flex">Jump Menu</span>
+    </div>
+  </md-toolbar>
+          <md-content md-theme="light-blue-dark">
+        
+         <form class="box_cnt filteropt">
+            <div class="row">
+                <ul>
+                  <li ng-repeat="itm in jumpOptions"><a href="#/{{filterOptions.page}}/{{filterOptions.genre}}/{{itm.value}}/{{sortOption}}">{{itm.option}}</a></li>
+                </ul>
+            </div>
+              <div class="box_cnt">
+                  <select ng-model="sortOption" style="width:150px;">
+                  <option value="all">Sort By</option>
+                  <option value="title">Name</option>
+                  <option value="views">Views</option>
+                  <option value="rating">Rating</option>
+               </select>
+               </div>
+         </form>
+          
+      </md-content>
+      <div style="margin-bottom:15px;">
+         <md-toolbar md-theme="blue">
+    <div class="md-toolbar-tools">
+      <span class="md-flex">Genre</span>
+    </div>
+  </md-toolbar>
+      <md-content md-theme="light-blue-dark">
+         <form class="box_cnt genrefilter">
+            <div class="row">
+                <ul>
+                  <li><a href="#/{{filterOptions.page}}/all/{{filterOptions.char}}/{{sortOption}}">All</a></li>
+                  <li ng-repeat="itm in Genre"><a href="#/{{filterOptions.page}}/{{itm.value}}/{{filterOptions.char}}/{{sortOption}}">{{itm.option}}</a></li>
+                </ul>
+            </div>
+         </form>
+
+      </md-content>
+      </div>
+      
+      </div>
+     
+  </div>
+      
+</md-sidenav>

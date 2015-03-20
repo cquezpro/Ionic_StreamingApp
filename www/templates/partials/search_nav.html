@@ -1,0 +1,91 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="search">
+  <div ng-controller="SearchCtrl">
+     <md-toolbar md-theme="orange">
+           <div class="mtool">
+    <div layout="row">
+      <div flex="66" style="padding-top:2px;">
+          Search
+      </div>
+      <div flex="33">
+         <div class="item_r">
+               <md-button ng-click="close()" aria-label="Cancel search">
+                <md-tooltip>
+                  Cancel search
+                </md-tooltip>
+                <i class="fa fa-close"></i>
+              </md-button>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+      </md-toolbar>
+      <div class="frmtxt">
+          <md-content md-theme="light-blue-dark">
+        
+         <form class="box_cnt">
+            <div class="row">
+              <md-text-float class="long"  label="Search Anime" ng-model="searchQuery" ng-keypress="searchClk($event)"></md-text-float>
+            </div>
+         </form>
+          
+      </md-content>
+      <div layout="row" layout-sm="column" layout-align="center center" ng-if="StartProcessing">
+         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <div style="margin-bottom:15px;" ng-if="!StartProcessing">
+         <md-toolbar md-theme="blue">
+    <div class="md-toolbar-tools">
+      <span class="md-flex">Advance Search</span>
+    </div>
+  </md-toolbar>
+         <md-content class="md-padding" style="height: 600px;">
+             <div class="row">
+              <md-text-float class="long"  label="Know a name, keyword, or title?" ng-model="data.query"></md-text-float>
+            </div>
+                 <strong>Language:</strong><br />
+                 Do you have a preffered language?
+                 <md-checkbox ng-repeat="itm in lanuages" ng-change="syncLanguage(bool, itm)" ng-model="bool" ng-checked="isLanguageChecked(itm.option)" aria-label="{{itm.option}}">
+                    {{itm.option}}
+                  </md-checkbox>
+            <strong>Quality:</strong><br />
+            Preffered Quality?
+            <md-checkbox ng-repeat="itm in quality" ng-change="syncQuality(bool, itm)" ng-model="bool" ng-checked="isQualityChecked(itm.option)"  aria-label="{{itm.option}}">
+                {{itm.option}}
+              </md-checkbox>
+            <strong>Genre:</strong><br />
+            What genre are you looking for?
+                 <md-checkbox ng-repeat="itm in Genre" ng-change="syncGenre(bool, itm)" ng-model="bool" ng-checked="isGenreChecked(itm.option)" aria-label="{{itm.option}}">
+                    {{itm.option}}
+                  </md-checkbox>
+            <strong>Filter Out:</strong><br />
+         What are you avoiding?
+                  <md-checkbox ng-repeat="itm in contents" ng-change="syncVoid(bool, itm)" ng-model="bool" ng-checked="isVoidChecked(itm.value)" aria-label="{{itm.value}}">
+                    {{itm.value}}
+                  </md-checkbox>
+                  <strong>Anime Type:</strong><br />
+           What Type of anime are you looking for?
+            <md-radio-group ng-model="data.type">
+              <md-radio-button value="0" aria-label="All">All</md-radio-button>
+              <md-radio-button value="1" aria-label="Series">Series</md-radio-button>
+              <md-radio-button value="5" aria-label="Fansubs">Fansubs</md-radio-button>
+              <md-radio-button value="2" aria-label="OVA's">OVA's</md-radio-button>
+              <md-radio-button value="6" aria-label="Trailers">Trailers</md-radio-button>
+              <md-radio-button value="4" aria-label="Live Actions">Live Actions</md-radio-button>
+            </md-radio-group>
+             <strong>Sorting Options:</strong><br />
+           How would you like the anime sorted
+            <md-radio-group ng-model="data.sort">
+              <md-radio-button value="title" aria-label="Alphabetically">Alphabetically</md-radio-button>
+              <md-radio-button value="views" aria-label="Popularity">Popularity</md-radio-button>
+              <md-radio-button value="rating" aria-label="Rating">Rating</md-radio-button>
+            </md-radio-group>
+            <br />
+            <md-button ng-click="advSearch(data)" class="md-raised md-primary">Run Advance Search</md-button>
+      </div>
+      
+      </div>
+     
+  </div>
+      
+    </md-sidenav>
